@@ -86,19 +86,6 @@ Below are some things to look out for regarding the data you get from EasyChair,
 
 Start by downloading the actual submissions: In EasyChair, go to the page _Submissions_ and click the link _Download submissions_ found in the upper right hand side. Extract the PDF files to a folder `pdf`. See [How to run](#how-to-run) for the file structure.
 
-### The metadata file
-
-The `meta` file defines a number of conference-level values that are needed to generate the BibTeX and to interpret the file names.
-The script will complain if you are missing fields.
-Fields of particular importance are:
-
-- `year`, `abbrev`, and `volume_name`: These will be used to form the anthology identifier for your conference, which has the format of "{year}.{abbrev}-{volume_name}.{paper_number}".
-  If you don't know what volume name to use, or have only one volume, a good default is just to number it "1".
-- `booktitle`: This is the long, fully expanded book title for the proceedings.
-- `short_booktitle`: This is a shorter proceedings name, which may someday be used to produce shorter citations.
-
-An example file can be found [here](example-files/meta).
-
 ### Information about all submissions
 
 On the same page _Submissions_: In the table, starting with the first submission entry (excluding the first row/header starting with `#`), select and copy the entire table. Copy and paste this into a proper text editor of your choice and save the file as `submissions`. Remember to not force any linebreaks. Each row in the table should correspond to one line in the resulting file. A sample `submissions` file is available [here](example-files/submissions).
@@ -114,13 +101,6 @@ A sample `accepted` file is available [here](example-files/accepted).
 **Please note**: the generated proceedings will order the papers in the order they are found in this file.
 Please reorder the entires in `accepted' according to the order you would like them displayed (typically, the order they are presented in the program).
 
-### Abstracts
-
-If you wish to have abstracts included on the Anthology paper pages ([example](https://www.aclweb.org/anthology/P18-1020/)), you will need to provide that information to the script.
-This information can be found in the file `submission.csv` (it is possible this is only available with the paid version of Easychair).
-Place this file in the directory as described above.
-If present, the abstracts will be generated into the BibTeX files for ingestion by the Anthology scripts.
-
 ### A short explanation of the steps above
 
 Neither of the two pages we saved data from alone contain all the information we need to create the necessary files.
@@ -129,3 +109,23 @@ By taking the intersection of the submission IDs of the two lists that we saved,
 
 Copying the table contents directly from the web browser results in a nice tab separated list when pasting into a text editor.
 This makes it easy to work with, and if the table format should change in EasyChair it is simple to adapt the script.
+
+### Abstracts
+
+If you wish to have abstracts included on the Anthology paper pages ([example](https://www.aclweb.org/anthology/P18-1020/)), you will need to provide that information to the script.
+This information can be found in the file `submission.csv` (it is possible this is only available with the paid version of Easychair).
+Place this file in the directory as described above.
+If present, the abstracts will be generated into the BibTeX files for ingestion by the Anthology scripts.
+
+### The metadata file
+
+The `meta` file defines a number of conference-level values that are needed to generate the BibTeX and to interpret the file names.
+The script will complain if you are missing fields.
+Fields of particular importance are:
+
+- `year`, `abbrev`, and `volume_name`: These will be used to form the anthology identifier for your conference, which has the format of "{year}.{abbrev}-{volume_name}.{paper_number}".
+  If you don't know what volume name to use, or have only one volume, a good default is just to number it "1".
+- `booktitle`: This is the long, fully expanded book title for the proceedings.
+- `short_booktitle`: This is a shorter proceedings name, which may someday be used to produce shorter citations.
+
+An example file can be found [here](example-files/meta).
