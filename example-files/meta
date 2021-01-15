@@ -1,11 +1,10 @@
 abbrev IWCS
-volume_name short
-type Main Conference
+volume short
 title The 13th International Conference on Computational Semantics
 booktitle Proceedings of the 13th International Conference on Computational Semantics: Short Papers
-short_booktitle Proceedings of IWCS
+shortbooktitle Proceedings of IWCS
 url https://sites.google.com/view/iwcs2019/home
-month 23--27 May
+month May
 year 2019
 location Gothenburg, Sweden
 publisher Association for Computational Linguistics

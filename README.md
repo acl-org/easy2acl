@@ -43,14 +43,14 @@ When the script has finished, you will see the following additional files in the
             |-- ${abbrev}-${year}.bib     # all bib entries
             |-- ${abbrev}-${year}.pdf     # entire volume
             |-- bib/
-            |   |-- {year}.{abbrev}-{volume_name}.0.bib  # frontmatter
-            |   |-- {year}.{abbrev}-{volume_name}.1.bib  # first paper
-            |   |-- {year}.{abbrev}-{volume_name}.2.bib  # second paper
+            |   |-- {year}.{abbrev}-{volume}.0.bib  # frontmatter
+            |   |-- {year}.{abbrev}-{volume}.1.bib  # first paper
+            |   |-- {year}.{abbrev}-{volume}.2.bib  # second paper
             |   `-- ...
             `-- pdf/
-                |-- {year}.{abbrev}-{volume_name}.0.pdf  # frontmatter
-                |-- {year}.{abbrev}-{volume_name}.1.pdf  # first paper
-                |-- {year}.{abbrev}-{volume_name}.2.pdf  # second paper
+                |-- {year}.{abbrev}-{volume}.0.pdf  # frontmatter
+                |-- {year}.{abbrev}-{volume}.1.pdf  # first paper
+                |-- {year}.{abbrev}-{volume}.2.pdf  # second paper
                 `-- ...
 
 This is the input format that [the ingestion scripts for the ACL Anthology](https://github.com/acl-org/ACLPUB) expect.
@@ -86,6 +86,13 @@ Below are some things to look out for regarding the data you get from EasyChair,
 
 Start by downloading the actual submissions: In EasyChair, go to the page _Submissions_ and click the link _Download submissions_ found in the upper right hand side. Extract the PDF files to a folder `pdf`. See [How to run](#how-to-run) for the file structure.
 
+### The metadata file
+
+The `meta` file defines a number of conference-level values that are needed to generate the BibTeX and to interpret the file names.
+Information on the layout and format of this file can be found on [this page in the ACLPUB documentation](https://acl-org.github.io/ACLPUB/anthology.html#the-meta-file).
+
+An example file can be found [here](example-files/meta).
+
 ### Information about all submissions
 
 On the same page _Submissions_: In the table, starting with the first submission entry (excluding the first row/header starting with `#`), select and copy the entire table. Copy and paste this into a proper text editor of your choice and save the file as `submissions`. Remember to not force any linebreaks. Each row in the table should correspond to one line in the resulting file. A sample `submissions` file is available [here](example-files/submissions).
@@ -94,7 +101,7 @@ We now have information about all the submissions but not whether they are accep
 
 ### A list of the accepted submissions
 
-Go to _Status -> All papers_.
+Go to _Status -> All submissions_.
 Here we find the information on what submissions are accepted.
 Copy the content of this table as you did with the previous one. Save the content as `accepted`, and make sure that each row in the table corresponds to one line in the resulting file.
 A sample `accepted` file is available [here](example-files/accepted).
@@ -123,7 +130,7 @@ The `meta` file defines a number of conference-level values that are needed to g
 The script will complain if you are missing fields.
 Fields of particular importance are:
 
-- `year`, `abbrev`, and `volume_name`: These will be used to form the anthology identifier for your conference, which has the format of "{year}.{abbrev}-{volume_name}.{paper_number}".
+- `year`, `abbrev`, and `volume`: These will be used to form the anthology identifier for your conference, which has the format of "{year}.{abbrev}-{volume_name}.{paper_number}".
   If you don't know what volume name to use, or have only one volume, a good default is just to number it "1".
 - `booktitle`: This is the long, fully expanded book title for the proceedings.
 - `short_booktitle`: This is a shorter proceedings name, which may someday be used to produce shorter citations.

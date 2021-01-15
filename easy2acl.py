@@ -42,13 +42,20 @@ with open('meta') as metadata_file:
         else:
             metadata[key] = value
 
-for key in 'abbrev volume_name title short_booktitle booktitle month year location publisher chairs'.split():
+for key in 'abbrev volume title shortbooktitle booktitle month year location publisher chairs'.split():
     if key not in metadata:
         print('Fatal: missing key "{}" from "meta" file'.format(key))
+        print("Please see the documentation at https://acl-org.github.io/ACLPUB/anthology.html.")
+        sys.exit(1)
+
+for key in "bib_url volume_name short_booktitle type".split():
+    if key in metadata:
+        print('Fatal: bad key "{}" in the "meta" file'.format(key))
+        print("Please see the documentation at https://acl-org.github.io/ACLPUB/anthology.html.")
         sys.exit(1)
 
 venue = metadata["abbrev"]
-volume_name = metadata["volume_name"]
+volume_name = metadata["volume"]
 year = metadata["year"]
 
 #
