@@ -59,7 +59,7 @@ The `easyacl.py` script also creates a file `book-proceedings/all_papers.tex` wh
 This document can be used to generate a full volume consolidated PDF file.
 This file contains front matter (which you should edit), and automatically creates a table of contents and includes all papers from `all_papers.tex`.
 To create the book proceedings simply edit the front matter and recompile `book_proceedings.tex`.
-Copy `book-proceedings.pdf` to `${abbrev}_${year}_frontmatter.pdf` in your `pdf` folder.
+Copy `book-proceedings.pdf` to `${abbrev}_${year}.pdf` in your `pdf` folder.
 To create `${abbrev}_${year}_frontmatter.pdf` extract the front matter pages with roman page numbers from `book-proceedings.pdf`.
 Finally, re-run `python3 easy2acl.py` to replace the dummy full book proceedings and front matter files in the `proceedings` folder that you will use in the next step.
 
