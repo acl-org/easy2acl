@@ -101,7 +101,7 @@ We now have information about all the submissions but not whether they are accep
 
 ### A list of the accepted submissions
 
-Go to _Status -> All papers_.
+Go to _Status -> All submissions_.
 Here we find the information on what submissions are accepted.
 Copy the content of this table as you did with the previous one. Save the content as `accepted`, and make sure that each row in the table corresponds to one line in the resulting file.
 A sample `accepted` file is available [here](example-files/accepted).
